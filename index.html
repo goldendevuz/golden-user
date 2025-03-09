@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="min-vh-100 bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-person-circle me-2"></i>
+                Profile Dashboard
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">
+                            <i class="bi bi-person me-1"></i>
+                            Profile
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="education.html">
+                            <i class="bi bi-book me-1"></i>
+                            Education
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="settings.html">
+                            <i class="bi bi-gear me-1"></i>
+                            Settings
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=800&q=80" 
+                         class="card-img-top" 
+                         alt="Profile">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">John Doe</h5>
+                        <p class="card-text text-muted">Senior Software Engineer</p>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editProfileModal">
+                                Edit Profile
+                            </button>
+                            <button class="btn btn-outline-primary">Share Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Contact Information</h5>
+                        <div class="mb-3">
+                            <p class="mb-2">
+                                <i class="bi bi-envelope me-2"></i>
+                                john.doe@example.com
+                            </p>
+                            <p class="mb-2">
+                                <i class="bi bi-telephone me-2"></i>
+                                (555) 123-4567
+                            </p>
+                            <p class="mb-0">
+                                <i class="bi bi-geo-alt me-2"></i>
+                                San Francisco, CA
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Professional Summary</h5>
+                        <p class="card-text">
+                            Experienced software engineer with a passion for building scalable web applications
+                            and mentoring junior developers. Specialized in React, Node.js, and cloud technologies.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Experience</h5>
+                        <div class="timeline">
+                            <div class="mb-3">
+                                <div class="d-flex align-items-center mb-1">
+                                    <i class="bi bi-briefcase me-2"></i>
+                                    <h6 class="mb-0">Senior Software Engineer</h6>
+                                </div>
+                                <p class="text-muted mb-1">Tech Corp Inc.</p>
+                                <p class="text-muted small">
+                                    <i class="bi bi-calendar me-1"></i>
+                                    2020 - Present
+                                </p>
+                            </div>
+                            
+                            <div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <i class="bi bi-briefcase me-2"></i>
+                                    <h6 class="mb-0">Software Engineer</h6>
+                                </div>
+                                <p class="text-muted mb-1">StartUp Labs</p>
+                                <p class="text-muted small">
+                                    <i class="bi bi-calendar me-1"></i>
+                                    2018 - 2020
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal fade" id="editProfileModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="profileForm" method="post" action="/update-profile" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label class="form-label">Profile Picture</label>
+                            <input type="file" class="form-control" name="profile_picture" accept="image/*">
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-control" name="full_name" value="John Doe" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Job Title</label>
+                                <input type="text" class="form-control" name="job_title" value="Senior Software Engineer" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" name="email" value="john.doe@example.com" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Phone</label>
+                                <input type="tel" class="form-control" name="phone" value="(555) 123-4567">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Location</label>
+                            <input type="text" class="form-control" name="location" value="San Francisco, CA">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Professional Summary</label>
+                            <textarea class="form-control" name="summary" rows="4" required>Experienced software engineer with a passion for building scalable web applications and mentoring junior developers. Specialized in React, Node.js, and cloud technologies.</textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Experience</label>
+                            <div class="card mb-2">
+                                <div class="card-body">
+                                    <div class="row mb-2">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Job Title</label>
+                                            <input type="text" class="form-control" name="experience[0][title]" value="Senior Software Engineer">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Company</label>
+                                            <input type="text" class="form-control" name="experience[0][company]" value="Tech Corp Inc.">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Start Date</label>
+                                            <input type="text" class="form-control" name="experience[0][start_date]" value="2020">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">End Date</label>
+                                            <input type="text" class="form-control" name="experience[0][end_date]" value="Present">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row mb-2">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Job Title</label>
+                                            <input type="text" class="form-control" name="experience[1][title]" value="Software Engineer">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Company</label>
+                                            <input type="text" class="form-control" name="experience[1][company]" value="StartUp Labs">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Start Date</label>
+                                            <input type="text" class="form-control" name="experience[1][start_date]" value="2018">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">End Date</label>
+                                            <input type="text" class="form-control" name="experience[1][end_date]" value="2020">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer px-0 pb-0">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

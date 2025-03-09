@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education - Profile Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="min-vh-100 bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-person-circle me-2"></i>
+                Profile Dashboard
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-person me-1"></i>
+                            Profile
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="education.html">
+                            <i class="bi bi-book me-1"></i>
+                            Education
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="settings.html">
+                            <i class="bi bi-gear me-1"></i>
+                            Settings
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h4 class="card-title mb-0">Education History</h4>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEducationModal">
+                                <i class="bi bi-plus-lg me-1"></i>
+                                Add Education
+                            </button>
+                        </div>
+                        
+                        <div class="timeline">
+                            <div class="mb-4">
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="bi bi-mortarboard me-2"></i>
+                                    <h5 class="mb-0">Master of Computer Science</h5>
+                                </div>
+                                <p class="text-muted mb-1">Stanford University</p>
+                                <p class="text-muted small mb-2">
+                                    <i class="bi bi-calendar me-1"></i>
+                                    2016 - 2018
+                                </p>
+                                <p>Specialized in Artificial Intelligence and Machine Learning</p>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-award me-2 text-primary"></i>
+                                    <span class="text-muted">GPA: 3.8/4.0</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="bi bi-mortarboard me-2"></i>
+                                    <h5 class="mb-0">Bachelor of Science in Computer Engineering</h5>
+                                </div>
+                                <p class="text-muted mb-1">MIT</p>
+                                <p class="text-muted small mb-2">
+                                    <i class="bi bi-calendar me-1"></i>
+                                    2012 - 2016
+                                </p>
+                                <p>Focus on Software Engineering and Systems Design</p>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-award me-2 text-primary"></i>
+                                    <span class="text-muted">GPA: 3.9/4.0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h4 class="card-title mb-0">Certifications</h4>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCertificationModal">
+                                <i class="bi bi-plus-lg me-1"></i>
+                                Add Certification
+                            </button>
+                        </div>
+                        
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="border rounded p-3">
+                                    <h6 class="mb-2">AWS Certified Solutions Architect</h6>
+                                    <p class="text-muted small mb-0">
+                                        <i class="bi bi-calendar me-1"></i>
+                                        Issued: Jan 2023
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="border rounded p-3">
+                                    <h6 class="mb-2">Google Cloud Professional Developer</h6>
+                                    <p class="text-muted small mb-0">
+                                        <i class="bi bi-calendar me-1"></i>
+                                        Issued: Mar 2022
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Education Modal -->
+    <div class="modal fade" id="addEducationModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Education</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="educationForm" method="post" action="/add-education">
+                        <div class="mb-3">
+                            <label class="form-label">Degree</label>
+                            <input type="text" class="form-control" name="degree" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Institution</label>
+                            <input type="text" class="form-control" name="institution" required>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <label class="form-label">Start Year</label>
+                                <input type="number" class="form-control" name="start_year" required>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label">End Year</label>
+                                <input type="number" class="form-control" name="end_year" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Field of Study</label>
+                            <input type="text" class="form-control" name="field_of_study">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">GPA</label>
+                            <input type="number" step="0.1" class="form-control" name="gpa">
+                        </div>
+                        <div class="modal-footer px-0 pb-0">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Add Education</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Certification Modal -->
+    <div class="modal fade" id="addCertificationModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Certification</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="certificationForm" method="post" action="/add-certification">
+                        <div class="mb-3">
+                            <label class="form-label">Certification Name</label>
+                            <input type="text" class="form-control" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Issuing Organization</label>
+                            <input type="text" class="form-control" name="organization" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Issue Date</label>
+                            <input type="date" class="form-control" name="issue_date" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Expiry Date</label>
+                            <input type="date" class="form-control" name="expiry_date">
+                        </div>
+                        <div class="modal-footer px-0 pb-0">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Add Certification</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
